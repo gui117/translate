@@ -1,16 +1,18 @@
 # Translate CLI
 
-一个使用 Rust 编写的命令行翻译工具，支持自动语言检测和多语言翻译。基于 Google Translate API 实现。
+A command-line translation tool written in Rust that supports automatic language detection and multi-language translation. Based on Google Translate API.
 
-## 功能特点
+[中文文档](./README_zh.md)
 
-- 无需 API 密钥
-- 自动语言检测
-- 支持 100+ 种语言
+## Features
 
-## 安装
+- No API key required
+- Automatic language detection
+- Support for 100+ languages
 
-### 从源码安装
+## Installation
+
+### From Source
 
 ```bash
 git clone https://github.com/yourusername/translate.git
@@ -18,83 +20,67 @@ cd translate
 cargo install --path .
 ```
 
-## 使用方法
+## Examples
 
 ```bash
-# 基本用法（自动检测语言）
-translate hello world
-
-# 指定源语言和目标语言
-translate --source en --target ja "Hello World"
-
-# 自动语言检测和转换
-translate --source auto --target auto "こんにちは"
-
-# 显示支持的语言列表
-translate --list
-```
-
-### 命令行选项
-
-```
-选项:
-  -s, --source <SOURCE>  源语言 (默认: auto)
-  -t, --target <TARGET>  目标语言 (默认: auto)
-  -l, --list            显示支持的语言列表
-  -h, --help           显示帮助信息
-  -V, --version        显示版本信息
-```
-
-### 常用语言代码
-
-- `auto` - 自动检测
-- `en` - English (英语)
-- `zh-CN` - Chinese Simplified (简体中文)
-- `ja` - Japanese (日语)
-- `ko` - Korean (韩语)
-- `fr` - French (法语)
-- `de` - German (德语)
-
-使用 `translate --list` 查看完整的语言列表。
-
-## 示例
-
-```bash
-# 英译中
+# English to Chinese
 translate "Hello, World!"
 > 你好，世界！
 
-# 中译英
+# Chinese to English
 translate "你好，世界！"
 > Hello, World!
 
-# 日译中
+# Japanese to Chinese
 translate --source ja --target zh-CN "こんにちは世界"
 > 你好世界
 
-# 自动检测并翻译成德语
+# Auto-detect to German
 translate --target de "Hello World"
 > Hallo Welt
 ```
 
-## 注意事项
+### Command-line Options
 
-1. 该工具使用非官方的 Google Translate API，可能存在不稳定性
-2. 为避免 IP 被限制，建议控制请求频率
-3. 某些语言可能需要特定的字符编码支持
-4. 自动检测功能可能不总是 100% 准确
+```
+Options:
+  -s, --source <SOURCE>  Source language (default: auto)
+  -t, --target <TARGET>  Target language (default: auto)
+  -l, --list            Show supported languages
+  -h, --help           Show help information
+  -V, --version        Show version information
+```
 
-## 贡献
+### Common Language Codes
 
-欢迎提交 Issue 和 Pull Request！
+- `auto` - Auto detect
+- `en` - English
+- `zh-CN` - Chinese Simplified
+- `ja` - Japanese
+- `ko` - Korean
+- `fr` - French
+- `de` - German
 
-## 致谢
+Use `translate --list` to see the complete language list.
+
+## Notes
+
+1. This tool uses an unofficial Google Translate API and may have stability issues
+2. To avoid IP restrictions, please control request frequency
+3. Some languages may require specific character encoding support
+4. Auto-detection may not always be 100% accurate
+
+## Contributing
+
+Issues and Pull Requests are welcome!
+
+## Credits
 
 - Google Translate API
-- [clap-rs](https://github.com/clap-rs/clap) - 命令行解析
-- [reqwest](https://github.com/seanmonstar/reqwest) - HTTP 客户端
+- [clap-rs](https://github.com/clap-rs/clap) - Command line argument parser
+- [reqwest](https://github.com/seanmonstar/reqwest) - HTTP Client
 - [alfred-translate-workflow](https://github.com/meshchaninov/alfred-translate-workflow)
 
-## 许可证
+## License
 
 MIT
